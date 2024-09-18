@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import { Text, View, Button } from "react-native";
 
-const name = "Ayandip"
-function fruit() {
-  return "apple"
-}
 
+//state is like a information holder within a componant
+//we cannot use any state outside the component
 const App = () => {
-  const age = 46
+  function testname() {
+    setname("Sayani")
+  }
+  const [name, setname] = useState("Ayandip");
   return (
     <View>
-      <Text style={{ fontSize: 30 }}>Hey {name} you have logged in sucessfully, your age is {age} his favourite fr is {fruit()} {age > 18? "above 18" : "below 18"}</Text>
+      <Text style={{fontSize: 30, padding: 30}}>React states with: {name}</Text>
+      <Button title="Update" onPress={testname}/>
     </View>
   );
 };
 export default App
+//we cannot share the data of any states from one components to another
