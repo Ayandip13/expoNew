@@ -24,5 +24,6 @@ const User = (props) => {
     </View>
   )
 }
-
+//we can't use any state out of the specific component.. we use props to use states for one components to another
+//When a state get update the component will re-rendered and also when a props got update the component then also will re-rendered 
 export default App
