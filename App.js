@@ -1,29 +1,37 @@
-import React, { useState } from "react";
-import { Text, View, Button } from "react-native";
+import React from "react";
+import { Text, View, Button, StyleSheet } from "react-native";
+import Exstyles from './style'
 
 const App = () => {
-  const [name, setname] = useState("Ayandip")
-  const [age, setage] = useState("22")
+
   return (
     <View>
-      <Text style={{ fontSize: 30, padding: 30 }}>props in React</Text>
-      <Button title="Update name" onPress={() => setname("Sayani")} />
-      <Button title="Update age" onPress={() => setage("21")} />
-      <User age={age} name={name} />
+      <Text style={{ fontSize: 30, padding: 30, backgroundColor: 'red' }}>Applying styles in native</Text>
+
+      <Text style={styles.textBox}>Styles in React</Text>
+      <Text style={[Exstyles.textBox,{margin:'6'}]}>Styles in React</Text>
+      <Text style={styles.textBox}>Styles in React</Text>
+
     </View>
   );
 };
+const styles = StyleSheet.create({
+  textBox: {
+    borderRadius:9,
+    fontSize: 40,
+    backgroundColor:'gold',
+    padding: 35,
+    margin:10,
+    color: 'blue',
+    textAlignVertical:'center',
+    textAlign:'center',
+    borderColor:'black',
+    borderWidth:4
+  }
+})
 
-const User = (props) => {
-  //console.warn();
 
-  return (
-    <View>
-      <Text style={{ fontSize: 30, padding: 50 }} >Child component {props.name}</Text>
-      <Text style={{ fontSize: 30, padding: 50 }} >Child component {props.age}</Text>
-    </View>
-  )
-}
-//we can't use any state out of the specific component.. we use props to use states for one components to another
-//When a state get update the component will re-rendered and also when a props got update the component then also will re-rendered 
 export default App
+//here we use double object in style part.. because outer is for style object inner is for jsx and this type of using style is called inline style which is directly use inside a component
+//When we make style for one specific component and in same file that is called internal style, `create` is An identity function for creating style sheets.
+
